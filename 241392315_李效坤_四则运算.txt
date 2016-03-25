@@ -1,0 +1,749 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+namespace SiZeYunSuan
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region  题目生成
+            Random ran = new Random();
+            int n;
+            Console.WriteLine("请输入要生成的题数：");
+            n = Convert.ToInt32(Console.ReadLine());
+            int m;
+            int[] e = new int[n];
+            Console.WriteLine("请输入一个数，所产生的运算题的数不能大于此数：");
+            m = Convert.ToInt32(Console.ReadLine());
+            int[] a1 = new int[n];
+            int[] b1 = new int[n];
+            int t1 = 0;
+            int[] a2 = new int[n];
+            int[] b2 = new int[n];
+            int t2 = 0;
+            int[] a3 = new int[n];
+            int[] b3 = new int[n];
+            int t3 = 0;
+            int[] a4 = new int[n];
+            int[] b4 = new int[n];
+            int t4 = 0;
+            int[] a5 = new int[n];
+            int[] b5 = new int[n];
+            int[] c5 = new int[n];
+            int t5 = 0;
+            int[] a6 = new int[n];
+            int[] b6 = new int[n];
+            int[] c6 = new int[n];
+            int t6 = 0;
+            int[] a7 = new int[n];
+            int[] b7 = new int[n];
+            int[] c7 = new int[n];
+            int t7 = 0;
+            int[] a8 = new int[n];
+            int[] b8 = new int[n];
+            int[] c8 = new int[n];
+            int t8 = 0;
+            int[] a9 = new int[n];
+            int[] b9 = new int[n];
+            int[] c9 = new int[n];
+            int t9 = 0;
+            int[] a10 = new int[n];
+            int[] b10 = new int[n];
+            int[] c10 = new int[n];
+            int t10 = 0;
+            int[] a11 = new int[n];
+            int[] b11 = new int[n];
+            int[] c11 = new int[n];
+            int[] d11 = new int[n];
+            int t11 = 0;
+            int[] a12 = new int[n];
+            int[] b12 = new int[n];
+            int[] c12 = new int[n];
+            int[] d12 = new int[n];
+            int t12 = 0;
+            int[] a13 = new int[n];
+            int[] b13 = new int[n];
+            int[] c13 = new int[n];
+            int[] d13 = new int[n];
+            int t13 = 0;
+            int[] a14 = new int[n];
+            int[] b14 = new int[n];
+            int[] c14 = new int[n];
+            int[] d14 = new int[n];
+            int t14 = 0;
+            int[] a15 = new int[n];
+            int[] b15 = new int[n];
+            int[] c15 = new int[n];
+            int[] d15 = new int[n];
+            int t15 = 0;
+            int[] a16 = new int[n];
+            int[] b16 = new int[n];
+            int[] c16 = new int[n];
+            int[] d16 = new int[n];
+            int t16 = 0;
+            int[] a17 = new int[n];
+            int[] b17 = new int[n];
+            int[] c17 = new int[n];
+            int[] d17 = new int[n];
+            int t17 = 0;
+            int[] a18 = new int[n];
+            int[] b18 = new int[n];
+            int[] c18 = new int[n];
+            int[] d18 = new int[n];
+            int t18 = 0;
+            FileStream fs1 = new FileStream("TextFile1.txt", FileMode.Create);
+            StreamWriter sw1 = new StreamWriter(fs1);
+            sw1.WriteLine("题目：");
+            sw1.Close();
+            fs1.Close();
+            for (int i = 1; i <= n; i++)
+            {
+            b:
+                int a = ran.Next(1, m);
+                int b = ran.Next(1, m);
+                int c = ran.Next(1, m);
+                int d = ran.Next(1, m);
+                if (i % 18 == 1 || i == 1)
+                {
+
+                    a1[t1] = a;
+                    b1[t1] = b;
+                    if (t1 > 0)
+                    {
+                        for (int w = 0; w < t1; w++)
+                        {
+                            if ((a1[t1] == a1[w] && b1[t1] == b1[w]) || (a1[t1] == b1[w] && b1[t1] == a1[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}+{2}=?", i, a, b);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}=?", i, a, b);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a + b;
+                    t1++;
+                }
+                else if (i % 18 == 2 || i == 2)
+                {
+                    if (a < b)
+                        goto b;
+
+                    a2[t2] = a;
+                    b2[t2] = b;
+                    if (t2 > 0)
+                    {
+                        for (int w = 0; w < t2; w++)
+                        {
+                            if ((a2[t2] == a2[w] && b2[t2] == b2[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}-{2}=？", i, a, b);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}-{2}=？", i, a, b);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a - b;
+                    t2++;
+                }
+                else if (i % 18 == 3 || i == 3)
+                {
+
+                    a3[t3] = a;
+                    b3[t3] = b;
+                    if (t3 > 0)
+                    {
+                        for (int w = 0; w < t3; w++)
+                        {
+                            if ((a3[t3] == a3[w] && b1[t3] == b3[w]) || (a3[t3] == b3[w] && b3[t3] == a1[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}*{2}=？", i, a, b);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}*{2}=？", i, a, b);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a * b;
+                    t3++;
+                }
+                else if (i % 18 == 4 || i == 4)
+                {
+                    if (a % b != 0)
+                        goto b;
+                    a4[t4] = a;
+                    b4[t4] = b;
+                    if (t4 > 0)
+                    {
+                        for (int w = 0; w < t4; w++)
+                        {
+                            if ((a4[t4] == a4[w] && b4[t4] == b4[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}/{2}=？", i, a, b);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}/{2}=？", i, a, b);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a / b;
+                    t4++;
+                }
+                else if (i % 18 == 5 || i == 5)
+                {
+                    if (a + b < c)
+                        goto b;
+                    a5[t5] = a;
+                    b5[t5] = b;
+                    c5[t5] = c;
+                    if (t5 > 0)
+                    {
+                        for (int w = 0; w < t5; w++)
+                        {
+                            if ((a5[t5] == a5[w] && b5[t5] == b5[w] && c5[t5] == c5[w]) ||
+                                (a5[t5] == b5[w] && b5[t5] == a5[w] && c5[t5] == c5[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}+{2}-{3}=？", i, a, b, c);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}-{3}=？", i, a, b, c);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a + b - c;
+                    t5++;
+                }
+                else if (i % 18 == 6 || i == 6)
+                {
+                    a6[t6] = a;
+                    b6[t6] = b;
+                    c6[t6] = c;
+                    if (t6 > 0)
+                    {
+                        for (int w = 0; w < t6; w++)
+                        {
+                            if ((a6[t6] == a6[w] && b6[t6] == b6[w] && c6[t6] == c6[w]) ||
+                                (a6[t6] == a6[w] && b6[t6] == c6[w] && c6[t6] == b6[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}+{2}*{3}=？", i, a, b, c);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}*{3}=？", i, a, b, c);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a + b * c;
+                    t6++;
+                }
+                else if (i % 18 == 7 || i == 7)
+                {
+                    if (b % c != 0)
+                        goto b;
+                    a7[t7] = a;
+                    b7[t7] = b;
+                    c7[t7] = c;
+                    if (t6 > 0)
+                    {
+                        for (int w = 0; w < t7; w++)
+                        {
+                            if ((a7[t7] == a7[w] && b7[t7] == b7[w] && c7[t7] == c7[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}+{2}/{3}=？", i, a, b, c);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}/{3}=？", i, a, b, c);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a + b / c;
+                    t7++;
+                }
+                else if (i % 18 == 8 || i == 8)
+                {
+                    if (a < b * c)
+                        goto b;
+                    a8[t8] = a;
+                    b8[t8] = b;
+                    c8[t8] = c;
+                    if (t8 > 0)
+                    {
+                        for (int w = 0; w < t8; w++)
+                        {
+                            if ((a8[t8] == a8[w] && b8[t8] == b8[w] && c8[t8] == c8[w]) ||
+                                (a8[t8] == a8[w] && b8[t8] == c8[w] && c8[t8] == b8[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}-{2}*{3}=？", i, a, b, c);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}-{2}*{3}=？", i, a, b, c);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a - b * c;
+                    t8++;
+                }
+                else if (i % 18 == 9 || i == 9)
+                {
+                    if (b % c != 0 || a < c / b)
+                        goto b;
+                    a9[t9] = a;
+                    b9[t9] = b;
+                    c9[t9] = c;
+                    if (t9 > 0)
+                    {
+                        for (int w = 0; w < t9; w++)
+                        {
+                            if ((a9[t9] == a9[w] && b9[t9] == b9[w] && c9[t9] == c9[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}-{2}/{3}=？", i, a, b, c);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}-{2}/{3}=？", i, a, b, c);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a - b / c;
+                    t9++;
+                }
+                else if (i % 18 == 10 || i == 10)
+                {
+                    if (a * b % c != 0)
+                        goto b;
+                    a10[t10] = a;
+                    b10[t10] = b;
+                    c10[t10] = c;
+                    if (t10 > 0)
+                    {
+                        for (int w = 0; w < t10; w++)
+                        {
+                            if ((a10[t10] == a10[w] && b10[t10] == b10[w] && c10[t10] == c10[w]) ||
+                                (a10[t10] == b10[w] && b10[t10] == a10[w] && c10[t10] == c10[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}*{2}/{3}=？", i, a, b, c);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}*{2}/{3}=？", i, a, b, c);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a * b / c;
+                    t10++;
+                }
+                else if (i % 18 == 11 || i == 11)
+                {
+                    if (b < c * d)
+                        goto b;
+                    a11[t11] = a;
+                    b11[t11] = b;
+                    c11[t11] = c;
+                    d11[t11] = d;
+                    if (t11 > 0)
+                    {
+                        for (int w = 0; w < t11; w++)
+                        {
+                            if ((a11[t11] == a11[w] && b11[t11] == b11[w] && c11[t11] == c11[w] && d11[t11] == d11[w]) ||
+                                (a11[t11] == b11[w] && b11[t11] == a11[w] && c11[t11] == c11[w] && d11[t11] == d11[w]) ||
+                                (a11[t11] == a11[w] && b11[t11] == b11[w] && c11[t11] == d11[w] && d11[t11] == c11[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}+{2}-{3}*{4}=？", i, a, b, c, d);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}-{3}*{4}=？", i, a, b, c, d);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a + b - c * d;
+                    t11++;
+                }
+                else if (i % 18 == 12 || i == 12)
+                {
+                    if (b < c / d || c % d != 0)
+                        goto b;
+                    a12[t12] = a;
+                    b12[t12] = b;
+                    c12[t12] = c;
+                    d12[t12] = d;
+                    if (t12 > 0)
+                    {
+                        for (int w = 0; w < t12; w++)
+                        {
+                            if ((a12[t12] == a12[w] && b12[t12] == b12[w] && c12[t12] == c12[w] && d12[t12] == d12[w]) ||
+                                (a12[t12] == b12[w] && b12[t12] == a12[w] && c12[t11] == c12[w] && d12[t12] == d12[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}+{2}-{3}/{4}=？", i, a, b, c, d);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}-{3}/{4}=？", i, a, b, c, d);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a + b - c / d;
+                    t12++;
+                }
+                else if (i % 18 == 13 || i == 13)
+                {
+                    if (b * c % d != 0)
+                        goto b;
+                    a13[t13] = a;
+                    b13[t13] = b;
+                    c13[t13] = c;
+                    d13[t13] = d;
+                    if (t13 > 0)
+                    {
+                        for (int w = 0; w < t13; w++)
+                        {
+                            if ((a13[t13] == a13[w] && b13[t13] == b13[w] && c13[t13] == c13[w] && d13[t13] == d13[w]) ||
+                                (a13[t13] == a13[w] && b13[t13] == c13[w] && c13[t13] == b13[w] && d13[t13] == d13[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}+{2}*{3}/{4}=？", i, a, b, c, d);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}*{3}/{4}=？", i, a, b, c, d);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a + b * c / d;
+                    t13++;
+                }
+                else if (i % 18 == 14 || i == 14)
+                {
+                    if (a < b * c / d || b * c % d != 0)
+                        goto b;
+                    a14[t14] = a;
+                    b14[t14] = b;
+                    c14[t14] = c;
+                    d14[t14] = d;
+                    if (t14 > 0)
+                    {
+                        for (int w = 0; w < t14; w++)
+                        {
+                            if ((a14[t14] == a14[w] && b14[t14] == b14[w] && c14[t14] == c14[w] && d14[t14] == d14[w]) ||
+                                (a14[t14] == a14[w] && b14[t14] == c14[w] && c14[t14] == b14[w] && d14[t14] == d14[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}-{2}*{3}/{4}=？", i, a, b, c, d);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}-{2}*{3}/{4}=？", i, a, b, c, d);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a - b * c / d;
+                    t14++;
+                }
+                else if (i % 18 == 15 || i == 15)
+                {
+                    if (a < b)
+                        goto b;
+                    a15[t15] = a;
+                    b15[t15] = b;
+                    c15[t15] = c;
+                    d15[t15] = d;
+                    if (t15 > 0)
+                    {
+                        for (int w = 0; w < t15; w++)
+                        {
+                            if ((a15[t15] == a15[w] && b15[t15] == b15[w] && c15[t15] == c15[w] && d15[t15] == d15[w]) ||
+                                (a15[t15] == a15[w] && b15[t15] == b15[w] && c15[t15] == d15[w] && d15[t15] == c15[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}-{2}+{3}*{4}=？", i, a, b, c, d);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}-{2}+{3}*{4}=？", i, a, b, c, d);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a - b + c * d;
+                    t15++;
+                }
+                else if (i % 18 == 16 || i == 16)
+                {
+                    if (a < b || c % d != 0)
+                        goto b;
+                    a16[t16] = a;
+                    b16[t16] = b;
+                    c16[t16] = c;
+                    d16[t16] = d;
+                    if (t16 > 0)
+                    {
+                        for (int w = 0; w < t16; w++)
+                        {
+                            if ((a16[t16] == a16[w] && b16[t16] == b16[w] && c16[t16] == c16[w] && d16[t16] == d16[w]) ||
+                                (a16[t16] == a16[w] && b16[t16] == b16[w] && c16[t16] == d16[w] && d16[t16] == c16[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}-{2}+{3}/{4}=？", i, a, b, c, d);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}-{3}/{4}=？", i, a, b, c, d);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a - b + c / d;
+                    t16++;
+                }
+                else if (i % 18 == 17 || i == 17)
+                {
+                    if (b % c != 0)
+                        goto b;
+                    a17[t17] = a;
+                    b17[t17] = b;
+                    c17[t17] = c;
+                    d17[t17] = d;
+                    if (t17 > 0)
+                    {
+                        for (int w = 0; w < t17; w++)
+                        {
+                            if ((a17[t17] == a17[w] && b17[t17] == b17[w] && c17[t17] == c17[w] && d17[t17] == d17[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}+{2}/{3}*{4}=？", i, a, b, c, d);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}+{2}/{3}*{4}=？", i, a, b, c, d);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a + b / c * d;
+                    t17++;
+                }
+                else if (i % 18 == 0 || i == 18)
+                {
+                    if (a < b / c * d || b % c != 0)
+                        goto b;
+                    a18[t18] = a;
+                    b18[t18] = b;
+                    c18[t18] = c;
+                    d18[t18] = d;
+                    if (t18 > 0)
+                    {
+                        for (int w = 0; w < t18; w++)
+                        {
+                            if ((a18[t18] == a18[w] && b18[t18] == b18[w] && c18[t18] == c18[w] && d18[t18] == d18[w]))
+                            {
+                                goto b;
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine("{0}: {1}-{2}/{3}*{4}=？", i, a, b, c, d);
+                    FileStream fs = new FileStream("TextFile1.txt", FileMode.Append);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine("{0}: {1}-{2}/{3}*{4}=？", i, a, b, c, d);
+                    sw.Close();
+                    fs.Close();
+                    e[i - 1] = a - b / c * d;
+                    t18++;
+                }
+            }
+            System.Diagnostics.Process.Start("TextFile1.txt");
+            #endregion
+            #region  答案生成
+        b1:
+            Console.Clear();
+            Console.WriteLine("直接输出正确答案请按1");
+            Console.WriteLine("输入自己答案请按2：");
+            string w1 = Console.ReadLine().ToString();
+            #region  1对应的结果
+            if (w1 == "1")
+            {
+                FileStream fs3 = new FileStream("TextFile2.txt", FileMode.Create);
+                StreamWriter sw3 = new StreamWriter(fs3);
+                sw3.WriteLine("正确答案：");
+                sw3.Close();
+                fs3.Close();
+                Console.WriteLine("正确答案：");
+                for (int i = 1; i <= n; i++)
+                {
+                    Console.WriteLine("{0}:{1}", i, e[i - 1]);
+                    FileStream fs31 = new FileStream("TextFile2.txt", FileMode.Append);
+                    StreamWriter sw31 = new StreamWriter(fs31);
+                    sw31.WriteLine("{0}:{1}", i, e[i - 1]);
+                    sw31.Close();
+                    fs31.Close();
+                }
+                System.Diagnostics.Process.Start("TextFile2.txt");
+            }
+            #endregion
+            #region 2对应的结果
+            else if (w1 == "2")
+            {
+                Console.WriteLine("请输入答案：");
+                int[] g = new int[n];
+                for (int i = 1; i <= n; i++)
+                {
+                    Console.Write("{0}:", i);
+                    g[i - 1] = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.WriteLine("显示答案请按Enter！");
+                Console.Read();
+                Console.Clear();
+                FileStream fs2 = new FileStream("TextFile2.txt", FileMode.Create);
+                StreamWriter sw2 = new StreamWriter(fs2);
+                sw2.WriteLine("我的答案：");
+                sw2.Close();
+                fs2.Close();
+                Console.WriteLine("我的答案：");
+                for (int i = 1; i <= n; i++)
+                {
+                    Console.WriteLine("{0}:{1}", i, g[i - 1]);
+                    FileStream fs21 = new FileStream("TextFile2.txt", FileMode.Append);
+                    StreamWriter sw21 = new StreamWriter(fs21);
+                    sw21.WriteLine("{0}:{1}", i, g[i - 1]);
+                    sw21.Close();
+                    fs21.Close();
+                }
+                FileStream fs3 = new FileStream("TextFile2.txt", FileMode.Append);
+                StreamWriter sw3 = new StreamWriter(fs3);
+                sw3.WriteLine("正确答案：");
+                sw3.Close();
+                fs3.Close();
+                Console.WriteLine("正确答案：");
+                for (int i = 1; i <= n; i++)
+                {
+                    Console.WriteLine("{0}:{1}", i, e[i - 1]);
+                    FileStream fs31 = new FileStream("TextFile2.txt", FileMode.Append);
+                    StreamWriter sw31 = new StreamWriter(fs31);
+                    sw31.WriteLine("{0}:{1}", i, e[i - 1]);
+                    sw31.Close();
+                    fs31.Close();
+                }
+                System.Diagnostics.Process.Start("TextFile2.txt");
+                int[] t = new int[n];
+                int[] y = new int[n];
+                int p = 0, j = 0, j1 = 0;
+                for (int i = 0; i < n; i++)
+                {
+                    if (e[i] == g[i])
+                    {
+                        t[j] = i + 1;
+                        j++;
+                        p++;
+                    }
+                    else
+                    {
+                        y[j1] = i + 1;
+                        j1++;
+                    }
+                }
+                Console.Write("Correct: {0} (", p);
+                FileStream fs32 = new FileStream("TextFile2.txt", FileMode.Append);
+                StreamWriter sw32 = new StreamWriter(fs32);
+                sw32.Write("Correct: {0} (", p);
+                if (p == 0)
+                {
+                    Console.WriteLine(")");
+                    sw32.WriteLine(")");
+                }
+                else
+                {
+                    Console.Write("" + t[0]);
+                    sw32.Write("" + t[0]);
+                    for (int i = 1; i < j; i++)
+                    {
+                        Console.Write("," + t[i]);
+                        sw32.Write("," + t[i]);
+                    }
+                    Console.WriteLine(")");
+                    sw32.WriteLine(")");
+                }
+                Console.Write("Wrong: {0} (", n - p);
+                sw32.Write("Wrong: {0} (", n - p);
+                if (p == n)
+                {
+                    Console.WriteLine(")");
+                    sw32.Write(")");
+                }
+                else
+                {
+                    Console.Write("" + y[0]);
+                    sw32.Write("" + y[0]);
+                    for (int i = 1; i < j1; i++)
+                    {
+                        Console.Write("," + y[i]);
+                        sw32.Write("," + y[i]);
+                    }
+                    Console.WriteLine(")");
+                    sw32.WriteLine(")");
+                    sw32.Close();
+                    fs32.Close();
+                }
+            }
+
+            #endregion
+            else
+                goto b1;
+            #endregion
+            System.Diagnostics.Debugger.Break();
+        }
+    }
+}
